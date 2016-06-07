@@ -1,0 +1,48 @@
+<div class='decay-form'>
+
+<h3>Decay Simulator for CodeHealth Plugin</h3>
+<p>This program approximates an unbiased k/r comment decay model based on location. Change locations visible by the sharp dips in the comment health graph</p>
+
+<hr/>
+
+<form change="decayForm" >
+ <label>Enter Lines of Code:</label> 
+   <rzslider
+         rz-slider-model="maxLines"
+         rz-slider-options="{floor: 10, ceil: 1000}"></rzslider>
+
+ <label>Enter Number of Random Changed Lines (duplicates allowed unfortunately):</label>
+   <rzslider
+         rz-slider-model="changes"
+         rz-slider-options="changeOptions"></rzslider>
+
+
+<!-- 
+ <label>Enter Lines of Changes or Hit Random!<input change="changesInput" ng-model="lineChanges" ng-list required></label><button ng-click="makeRandom()" class="btn btn-info">Random!</button>
+ -->
+  <label>Enter DecayFactor (recommend something around 20):</label>
+  <rzslider
+         rz-slider-model="decayFactor" 
+         rz-slider-options="{floor: 1, ceil: 50}"></rzslider>
+
+
+
+
+<button type="submit" class="btn btn-danger" ng-click="loadPlot()">Simulate!</button>
+
+<!-- 
+<label><input type="checkbox" id="checkBox" ng-model='cont' value="first_checkbox"> Update after each slide</label><br> -->
+
+ <span role="alert">
+   <span class="error" ng-show="myForm.changesInput.$error.required">
+   All Fields are required!</span>
+ </span>
+ <br>
+ <!-- <tt>changes = {{changes}}</tt><br/>
+ <tt>myForm.changesInput.$valid = {{myForm.changesInput.$valid}}</tt><br/>
+ <tt>myForm.changesInput.$error = {{myForm.changesInput.$error}}</tt><br/>
+ <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
+ <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/> -->
+
+
+</form>
